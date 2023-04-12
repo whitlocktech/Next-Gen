@@ -1,0 +1,17 @@
+{
+  "name": "next-gengamingwebserver",
+  "version": "1.0.0",
+  "description": "The Webserver that will be hosting the Next-Gen gaming website",
+  "main": "server.js",
+  "scripts": {
+    "watch": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js"
+  },
+  "author": "whitlocktech",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
