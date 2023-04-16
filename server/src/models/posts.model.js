@@ -1,19 +1,9 @@
-const posts = new Map()
+const postsDatabase = require('./posts.mongo')
 
-let latestPostId = 1
+async function getAllPosts(skip, limit) {
+    return await postsDatabase
+        .find({}, {})
 
-const post = {
-    id: 1,
-    title: 'Test Post',
-    author: 'Colby',
-    content: 'test body',
-    published: true,
-}
-
-posts.set(post.id, post)
-
-function getAllPosts() {
-    return Array.from(posts.values())
 }
 
 module.exports = {
