@@ -1,7 +1,6 @@
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
-const postsRouter = require('./routes/posts/posts.router')
 const morgan = require('morgan')
 const api = require('./routes/api')
 
