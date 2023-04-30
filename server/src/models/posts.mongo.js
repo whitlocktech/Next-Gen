@@ -16,6 +16,10 @@ const postsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  isPublished: {
+    type: Boolean,
+    required: true,
+  },
   date: {
     type: Date,
     default: Date.now,

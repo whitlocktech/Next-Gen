@@ -1,6 +1,7 @@
 const {
     getAllPosts,
-    saveNewPost 
+    saveNewPost,
+    updatePost
 } = require('../../models/posts.model')
 
 const {
@@ -16,7 +17,7 @@ async function httpAddNewPost(req, res) {
 
     if (!post.title || !post.author || !post.content || !post.date) {
         return res.status(400).json({
-            error: 'Missing require properties'
+            error: 'Missing required properties'
         })
     }
 
@@ -31,7 +32,27 @@ async function httpAddNewPost(req, res) {
     return res.status(201).json(post)
 }
 
+async function httpUpdatePost(req, res) {
+    const post = req.body
+
+    if (!post.title || !post.isPublished) {
+        return res.status(400).json({
+            error: 'Missing required properties'
+        })
+    }
+    try {
+        await updatePost(post)
+    } catch (error) {
+        return res.status(400).json({
+            error: 'Can not find specified post'
+        })
+    }
+
+    return res.status(201).json(post)
+}
+
 module.exports = {
     httpGetAllPosts,
-    httpAddNewPost
+    httpAddNewPost,
+    httpUpdatePost
 }

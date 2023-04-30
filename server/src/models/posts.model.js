@@ -20,7 +20,18 @@ async function saveNewPost(post) {
     await savePost(newPost)
 }
 
+async function updatePost(post) {
+    await postsDatabase.findOneAndUpdate({
+        title: post.tile,
+    }, post, {
+        upsert: true,
+    })
+
+    await savePost(post)
+}
+
 module.exports = {
     getAllPosts,
-    saveNewPost
+    saveNewPost,
+    updatePost
 }
