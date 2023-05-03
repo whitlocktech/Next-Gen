@@ -3,7 +3,8 @@ const cors = require('cors')
 const path = require('path')
 const morgan = require('morgan')
 const api = require('./routes/api')
-
+const passport = require('passport')
+require('./services/passport')
 
 const app = express()
 
@@ -12,6 +13,7 @@ app.use(cors({
 }))
 
 app.use(morgan('combined'))
+app.use(passport.initialize())
 
 app.use(express.json())
 app.use(express.static(path.join(__dirname, '..', 'public')))
