@@ -2,7 +2,7 @@ const {
     getAllPosts,
     saveNewPost,
     updatePost
-} = require('../../models/posts.model')
+} = require('../../models/posts/posts.model')
 
 const {
     getPagination
