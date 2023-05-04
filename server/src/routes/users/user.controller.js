@@ -77,6 +77,19 @@ async function login(req, res, next) {
   })(req, res, next);
 };
 
+function adminOrModerator(req, res, next) {
+    if (!req.user && !req.user.userRole === 'administrator' || 'moderator') {
+        return res.status(401).json({ error: 'Access Denied'})
+    }
+    next()
+}
+
+function adminOnly(req, res, next) {
+    if (!req.user && !req.userRole === 'administrator' || 'moderator') {
+        return res.status(401).json({ error: 'Access Denied'})
+    }
+    next()
+}
 
 module.exports = {
     createUser,
@@ -84,5 +97,7 @@ module.exports = {
     updateUser,
     deleteUser,
     logout,
-    login
+    login,
+    adminOrModerator,
+    adminOnly
 }
