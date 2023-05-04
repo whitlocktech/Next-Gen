@@ -1,3 +1,4 @@
+const passport = require('passport')
 const User = require('../../models/users/user.model')
 
 async function createUser(req, res) {
@@ -50,9 +51,38 @@ async function deleteUser(req, res) {
     }
 }
 
+async function logout(req, res) {
+    try{
+        req.logout()
+        res.json({ message: 'Logout successful'})
+    } catch (err) {
+        return res.status(500).json({ error: 'Error Logging out'})
+    }
+}
+
+async function login(req, res, next) {
+  passport.authenticate('local', (err, user, info) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return res.status(401).json({ message: 'Incorrect email or password' });
+    }
+    req.logIn(user, (err) => {
+      if (err) {
+        return next(err);
+      }
+      return res.json({ message: 'Login successful' });
+    });
+  })(req, res, next);
+};
+
+
 module.exports = {
     createUser,
     getUserById,
     updateUser,
-    deleteUser
+    deleteUser,
+    logout,
+    login
 }
