@@ -5,14 +5,17 @@ const {
     updateUser,
     deleteUser,
     logout,
-    login
+    login,
+    adminOrModerator,
+    adminOnly,
+    userRoleAssignment
 } = require('./user.controller')
 
 const authRouter = express.Router()
 
-authRouter.post('/user-signup', createUser)
+authRouter.post('/user-signup', userRoleAssignment, createUser)
 authRouter.get('/:id', getUserById)
-authRouter.patch('/:id', updateUser)
+authRouter.patch('/:id', userRoleAssignment, updateUser)
 authRouter.delete('/:id', deleteUser)
 authRouter.get('/logout', logout)
 authRouter.post('/login', login)

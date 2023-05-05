@@ -79,14 +79,21 @@ async function login(req, res, next) {
 
 function adminOrModerator(req, res, next) {
     if (!req.user && !req.user.userRole === 'administrator' || 'moderator') {
-        return res.status(401).json({ error: 'Access Denied'})
+        return res.status(403).json({ error: 'Access Denied'})
     }
     next()
 }
 
 function adminOnly(req, res, next) {
-    if (!req.user && !req.userRole === 'administrator' || 'moderator') {
-        return res.status(401).json({ error: 'Access Denied'})
+    if (!req.user && !req.userRole === 'administrator') {
+        return res.status(403).json({ error: 'Access Denied'})
+    }
+    next()
+}
+
+function userRoleAssignment(req, res, next) {
+    if (req.body.userRole === 'moderator' || 'administrator' && !req.user.userRole === 'administrator') {
+        return res.status(403).json({ error: 'Access Denied'})
     }
     next()
 }
@@ -99,5 +106,6 @@ module.exports = {
     logout,
     login,
     adminOrModerator,
-    adminOnly
+    adminOnly,
+    userRoleAssignment
 }
