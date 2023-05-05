@@ -52,12 +52,9 @@ async function deleteUser(req, res) {
 }
 
 async function logout(req, res) {
-    try{
-        req.logout()
-        res.json({ message: 'Logout successful'})
-    } catch (err) {
-        return res.status(500).json({ error: 'Error Logging out'})
-    }
+    req.logout()
+    res.json({ message: 'Logout successful' })
+    return res.redirect('/')
 }
 
 async function login(req, res, next) {
@@ -78,7 +75,7 @@ async function login(req, res, next) {
 };
 
 function adminOrModerator(req, res, next) {
-    if (!req.user && !req.user.userRole === 'administrator' || 'moderator') {
+    if (req.user && req.user.userRole === 'administrator' || 'moderator') {
         return res.status(403).json({ error: 'Access Denied'})
     }
     next()

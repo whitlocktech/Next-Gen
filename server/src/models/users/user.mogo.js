@@ -25,6 +25,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: ['user', 'moderator', 'administrator'],
         default: 'user'
+    },
+    googleId: {
+        type: String,
+        unique: true
     }
 })
 
