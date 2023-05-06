@@ -1,8 +1,9 @@
 const {
     getAllPosts,
     saveNewPost,
-    updatePost
-} = require('../../models/posts.model')
+    updatePost,
+    getPostByTitle,
+} = require('../../models/posts/posts.model')
 
 const {
     getPagination
@@ -51,8 +52,18 @@ async function httpUpdatePost(req, res) {
     return res.status(201).json(post)
 }
 
+async function httpGetPostByTitle(req, res) {
+    const title = req.params.title,
+        post = await getPostByTitle(title)
+    if (!post) {
+        return res.status(404).json({ error: 'Post not found' })
+    }
+    return res.status(200).json(post)
+}
+
 module.exports = {
     httpGetAllPosts,
     httpAddNewPost,
-    httpUpdatePost
+    httpUpdatePost,
+    httpGetPostByTitle,
 }

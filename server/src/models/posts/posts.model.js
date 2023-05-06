@@ -30,8 +30,13 @@ async function updatePost(post) {
     await savePost(post)
 }
 
+async function getPostByTitle(title) {
+    return await postsDatabase.findOne({ title }), { '__v': 0 }
+}
+
 module.exports = {
     getAllPosts,
     saveNewPost,
-    updatePost
+    updatePost,
+    getPostByTitle,
 }
