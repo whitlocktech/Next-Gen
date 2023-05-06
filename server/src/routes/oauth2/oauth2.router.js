@@ -14,7 +14,7 @@ oauth2Router.get('/google/callback',
         failureRedirect: '/failure',
         successRedirect: '/',
         session: true
-    }), (req, res) => {
+    }), (req, res, next) => {
         console.log('Google Called Us back')
     }
 )
