@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "install-server": "npm install --prefix server",
-    "install-frontend": "npm install --prefix frontend",
-    "install": "npm run install-server && npm install-frontend",
+    "install-client": "npm install --prefix client",
+    "install": "npm run install-server && npm install-client",
     "server": "npm run watch --prefix server",
-    "frontend": "npm run start --prefix frontend",
-    "watch": "npm run server & npm run frontend",
+    "client": "npm run start --prefix client",
+    "watch": "npm run server & npm run client",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "npm run bulid --prefix frontend && npm start --prefix server"
+    "deploy": "npm run bulid --prefix client && npm start --prefix server"
   },
   "author": "whitlocktech",
   "license": "ISC",
