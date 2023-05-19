@@ -1,0 +1,33 @@
+.cardTitle{
+    font-family: 'Dancing Script', cursive;
+    font-size: 35px;
+}
+.cardSubtitle{
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+}
+.Card{
+    background: #6463637c;
+    align-content: center;
+    text-align: center;
+    display:flex;
+    border:1px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    flex-direction: column;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.Card:hover{
+    transform: scale(1.05);
+}
+.cardText{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
