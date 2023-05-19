@@ -1,16 +1,23 @@
-import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import Home from './routes/home/home.component.jsx'
+import Navigation from './routes/navigation/navigation.component.jsx'
 
-import Navbar from './components/navbar/navbar.components.jsx'
-import CardList from './components/cardList/cardList.components.jsx'
+const Login = () => {
+  return (
+    <div>
+      I am the login page.
+    </div>
+  )
+}
 
 const App = () => {
-    return (
-      <div className="App">
-        <Navbar className='navbar'/>
-        <h1 className='bodyTitle'>Future Home of Next-Gen Gaming</h1>
-        <CardList className='cardList'/>
-      </div>
-    )
-  }
-
+  return (
+    <Routes>
+      <Route path='/' element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path='login' element={<Login />} />
+      </Route>
+    </Routes>
+  )
+}
 export default App;

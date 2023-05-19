@@ -1,4 +1,4 @@
-import './cardlist.styles.css'
+import './cardlist.styles.scss'
 import Card from '../card/card.components.jsx'
 
 const CardList = () => {

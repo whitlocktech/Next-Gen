@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
     display: table;
     flex-direction: column;
     justify-content: center;
@@ -8,23 +8,24 @@
     width: 100%;
 }
 
-.navbarTitle{
+.navbarTitle {
     font-family: 'Dancing Script', cursive;
     font-size: 30px;
     font-weight: bold;
     color: white;
     display: table-cell;
 }
+
 .material-symbols-outlined {
     font-variation-settings:
         'FILL' 0,
         'wght' 400,
         'GRAD' 0,
         'opsz' 48;
-        color: white;
+    color: white;
     display: table-cell;
     align-items: center;
     justify-content: center;
     display: inline-flex;
-    visibility:visible;
+    visibility: visible;
 }
