@@ -1,8 +1,7 @@
 .navbar {
-    display: table;
-    flex-direction: column;
-    justify-content: center;
+    display: flex;
     align-items: center;
+    justify-content: center;
     background-color: grey;
     height: 50px;
     width: 100%;
@@ -13,19 +12,20 @@
     font-size: 30px;
     font-weight: bold;
     color: white;
-    display: table-cell;
+    display: flex;
+    text-align: center;
+
 }
 
-.material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 48;
-    color: white;
+.nav-link {
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    font-weight: bold;
     display: table-cell;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     display: inline-flex;
     visibility: visible;
+    text-decoration: none;
+    padding: 10px 15px;
 }
