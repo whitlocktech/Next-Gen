@@ -1,12 +1,12 @@
 import './card.styles.scss'
 
-const Card = () => {
+const Card = ({post, onClick}) => {
+    const { title, author, content, } = post
     return (
         <div className="Card" >
-            <h3 className='cardTitle'>Card Title</h3>
-            <h4 className='cardSubtitle'>Card Subtitle</h4>
-            <p className='cardText'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
-            <p className='email'><a href='test@whitlocktech.net'>test@whitlocktech.net</a></p>
+            <h3 className='cardTitle'>{title}</h3>
+            <p className='cardSubtitle'>{author}</p>
+            <p className='cardText'>{content}</p>
         </div>
     )
 }
