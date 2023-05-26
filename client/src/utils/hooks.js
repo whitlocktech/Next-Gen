@@ -11,6 +11,16 @@ const fetchPosts = async () => {
   }
 }
 
+const loginUser = async () = {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/auth/login`)
+    return response
+  } catch(error) {
+    throw new Error('Failed to login user', error)
+  }
+}
+
 module.exports = {
-  fetchPosts
+  fetchPosts,
+  loginUser
 }
